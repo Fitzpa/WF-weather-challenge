@@ -8,11 +8,13 @@ function WeatherDetails() {
     <div>
       <h2>WeatherDetails</h2>
       <div className="container">
-        <h3>Current Date: {currentCityWeather[0].Date}</h3>
+        {/* {JSON.stringify(currentCityWeather)}
+        {currentCityWeather && currentCityWeather} */}
+        <h3>Current Date: {currentCityWeather[0]?.Date}</h3>
         <h3>City Name: {city}</h3>
-        <h3>Current time: {currentCityWeather[0].Time}</h3>
-        <h3>Temperature: {currentCityWeather[0].temprature}</h3>
-        <h3>Feels Like: {currentCityWeather[0].feels}</h3>
+        <h3>Current time: {currentCityWeather[0]?.Time}</h3>
+        <h3>Temperature: {currentCityWeather[0]?.temprature}</h3>
+        <h3>Feels Like: {currentCityWeather[0]?.feels}</h3>
       </div>
     </div>
   );

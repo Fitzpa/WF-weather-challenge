@@ -3,6 +3,7 @@ import "./App.css";
 import { weatherData } from "./weatherData";
 import Form from "./components/Form";
 import WeatherDetails from "./components/WeatherDetails";
+import FiveDayWeatherButton from "./components/FiveDayWeatherButton";
 import { WeatherContext } from "./context/WeatherContext";
 
 // <!--
@@ -18,29 +19,34 @@ import { WeatherContext } from "./context/WeatherContext";
 
 function App() {
   const [city, setCity] = useState("");
-  const [currentCityWeather, setCurrentCityWeather] = useState(null);
+  const [currentCityWeather, setCurrentCityWeather] = useState([
+    { Date: "", Time: "", temprature: "", feels: "" },
+  ]);
+  const [showFiveDayWeather, setShowFiveDayWeather] = useState(false);
 
   const weatherDataArray = Object.keys(weatherData.States);
-  console.log(weatherDataArray);
 
   useEffect(() => {
     weatherDataArray.forEach((el) => {
-      console.log(weatherData.States[el]);
       weatherData.States[el].cities.filter((ct) => {
-        console.log("ct", ct);
         if (ct.name === city) {
           setCurrentCityWeather(ct.forecast);
-          console.log("ct.forecast", ct.forecast);
         }
         return null;
       });
     });
-    console.log("currentCityWeather: ", currentCityWeather);
   }, [city, currentCityWeather, weatherDataArray]);
 
   return (
     <WeatherContext.Provider
-      value={{ currentCityWeather, setCurrentCityWeather, city, setCity }}
+      value={{
+        currentCityWeather,
+        setCurrentCityWeather,
+        city,
+        setCity,
+        showFiveDayWeather,
+        setShowFiveDayWeather,
+      }}
     >
       <div className="App">
         <h2>Weather App</h2>
@@ -48,6 +54,7 @@ function App() {
         <h2>Weather App</h2>
         <p>Some content</p>
         <Form />
+        <FiveDayWeatherButton />
         <WeatherDetails />
       </div>
     </WeatherContext.Provider>
