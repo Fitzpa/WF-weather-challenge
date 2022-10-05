@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../context/WeatherContext";
 
-import Temperature from "../components/Temperature";
+import DateDisplay from "../components/DateDisplay";
+import DataGrid from "../components/DataGrid";
+import CityCurrentTime from "../components/CityCurrentTime";
 
 function FiveDayWeather() {
   const { currentCityWeather, city } = useContext(WeatherContext);
@@ -9,21 +11,9 @@ function FiveDayWeather() {
     <div>
       FiveDayWeather
       <h1>{city}'s Five Day Forecast</h1>
-      <div>
-        {currentCityWeather &&
-          currentCityWeather.map((day, index) => {
-            console.log("day", day);
-            return (
-              <div key={index}>
-                <h3>Date: {day.Date}</h3>
-                <h3>Time: {day.Time}</h3>
-                <Temperature temp={day.temprature} />
-                <h3>Temperature: {day.temprature}</h3>
-                <h3>Feels Like: {day.feels}</h3>
-              </div>
-            );
-          })}
-      </div>
+      <DateDisplay currentCityWeather={currentCityWeather} />
+      <CityCurrentTime currentCityWeather={currentCityWeather} city={city} />
+      <DataGrid currentCityWeather={currentCityWeather} />
     </div>
   );
 }
