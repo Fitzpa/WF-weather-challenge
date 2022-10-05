@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { weatherData } from "./weatherData";
-import Form from "./components/Form";
-import WeatherDetails from "./components/WeatherDetails";
-import FiveDayWeatherButton from "./components/FiveDayWeatherButton";
+import Home from "./pages/Home";
+import FiveDayWeather from "./pages/FiveDayWeather";
 import { WeatherContext } from "./context/WeatherContext";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // <!--
 // •	Build form control with the following. Label : “Enter City”, Input form field, Submit Button. Button should be custom built and re-usable.
 // ?	Build weather details component. It should show the current Date, City Name, Current time & temperature details. “Begin with Static Data and later bind with JSON dynamic data”
@@ -49,13 +48,26 @@ function App() {
       }}
     >
       <div className="App">
-        <h2>Weather App</h2>
-        <p>Some content</p>
-        <h2>Weather App</h2>
-        <p>Some content</p>
-        <Form />
-        <FiveDayWeatherButton />
-        <WeatherDetails />
+        <Router>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/fiveDayWeather">Five Day Weather</Link>
+              </li>
+            </ul>
+          </nav>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+
+            <Route
+              path="/five-day-weather-forecast"
+              element={<FiveDayWeather />}
+            />
+          </Routes>
+        </Router>
       </div>
     </WeatherContext.Provider>
   );
