@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Form from "../components/Form";
 import WeatherDetails from "../components/WeatherDetails";
 import FiveDayWeatherButton from "../components/FiveDayWeatherButton";
+import { WeatherContext } from "../context/WeatherContext";
 
 function Home() {
+  const { city } = useContext(WeatherContext);
   return (
-    <div>
-      <h2>Weather App</h2>
-      <p>Some content</p>
-      <h2>Weather App</h2>
-      <p>Some content</p>
+    <div className="home">
+      <h1>Weather App</h1>
       <Form />
-      <FiveDayWeatherButton />
-      <WeatherDetails />
+      {city && (
+        <div className="weather-details-container">
+          <WeatherDetails />
+          <FiveDayWeatherButton />
+        </div>
+      )}
     </div>
   );
 }

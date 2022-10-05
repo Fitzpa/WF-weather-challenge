@@ -5,16 +5,24 @@ import { WeatherContext } from "../context/WeatherContext";
 function WeatherDetails() {
   const { currentCityWeather, city } = useContext(WeatherContext);
   return (
-    <div>
+    <div className="weather-details">
       <h2>WeatherDetails</h2>
-      <div className="container">
-        {/* {JSON.stringify(currentCityWeather)}
-        {currentCityWeather && currentCityWeather} */}
-        <h3>Current Date: {currentCityWeather[0]?.Date}</h3>
-        <h3>City Name: {city}</h3>
-        <h3>Current time: {currentCityWeather[0]?.Time}</h3>
-        <h3>Temperature: {currentCityWeather[0]?.temprature}</h3>
-        <h3>Feels Like: {currentCityWeather[0]?.feels}</h3>
+      <div>
+        <h3>
+          Current Date: <span>{currentCityWeather[0]?.Date}</span>
+        </h3>
+        <h3>
+          City Name: <span>{city}</span>
+        </h3>
+        <h3>
+          Current time: <span>{currentCityWeather[0]?.Time}</span>
+        </h3>
+        <h3>
+          Temperature: <span>{currentCityWeather[0]?.temprature}</span>
+        </h3>
+        <h3>
+          Feels Like: <span>{currentCityWeather[0]?.feels}</span>
+        </h3>
       </div>
     </div>
   );

@@ -6,8 +6,9 @@ function DateDisplay({ currentCityWeather }) {
   return (
     <div className="date-display-container">
       <h3 className="date">
-        {currentCityWeather[0].Date} -{" "}
-        {currentCityWeather[currentCityWeather.length - 1].Date}
+        {`${currentCityWeather[0].Date} - ${
+          currentCityWeather[currentCityWeather.length - 1].Date
+        }`}
       </h3>
     </div>
   );

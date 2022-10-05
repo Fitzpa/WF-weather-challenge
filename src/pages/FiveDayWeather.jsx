@@ -8,8 +8,7 @@ import CityCurrentTime from "../components/CityCurrentTime";
 function FiveDayWeather() {
   const { currentCityWeather, city } = useContext(WeatherContext);
   return (
-    <div>
-      FiveDayWeather
+    <div className="five-day">
       <h1>{city}'s Five Day Forecast</h1>
       <DateDisplay currentCityWeather={currentCityWeather} />
       <CityCurrentTime currentCityWeather={currentCityWeather} city={city} />

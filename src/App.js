@@ -50,24 +50,26 @@ function App() {
     >
       <div className="App">
         <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/five-day-weather-forecast">Five Day Weather</Link>
-              </li>
-            </ul>
-          </nav>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
+          <div className="container">
+            <nav className="navbar">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/five-day-weather-forecast">Five Day Weather</Link>
+                </li>
+              </ul>
+            </nav>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
 
-            <Route
-              path="/five-day-weather-forecast"
-              element={<FiveDayWeather />}
-            />
-          </Routes>
+              <Route
+                path="/five-day-weather-forecast"
+                element={<FiveDayWeather />}
+              />
+            </Routes>
+          </div>
         </Router>
       </div>
     </WeatherContext.Provider>

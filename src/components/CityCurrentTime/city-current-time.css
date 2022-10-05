@@ -1,3 +1,6 @@
-.city-and-current-time-container {
-  
+.city-and-current-time-container .city {
+    margin-bottom: 1rem;
+}
+.city-and-current-time-container .time {
+    margin-bottom: 1rem;
 }

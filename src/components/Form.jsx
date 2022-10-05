@@ -16,15 +16,15 @@ export default function Form() {
   };
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <label htmlFor="city">
-        Enter City
+    <form onSubmit={handleSubmit(onSubmit)} className="city-form">
+      <div className="form-group">
+        <label htmlFor="city">Enter City</label>
         <input id="city" defaultValue="Chicago" {...register("city")} />
-      </label>
+      </div>
 
-      <Button buttonType="submit" name="Submit" />
+      <div className="form-submit-button-container">
+        <Button buttonType="submit" name="Submit" />
+      </div>
     </form>
   );
 }
